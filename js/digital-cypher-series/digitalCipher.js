@@ -7,11 +7,17 @@ const alphabetMapping = {
 };
 
 function encode(str,  n) {
-    let strAsArray = str.split('') 
-    alphabetMapping.forEach(element, index = {
-        if alphabetMapping.includes()
-    });
-}
+    let arr = str.split('');
+    key = Array.from(String(n), ((n) => Number(n)))
+    console.log(key);
+    console.log(arr)
+    let encodedArr = [];
+    
+    for (i=0; i<arr.length; i++) {
+      encodedArr.push(alphabetMapping[arr[i]]);
+    }
+    console.log(encodedArr);
+  }
 
 
 
