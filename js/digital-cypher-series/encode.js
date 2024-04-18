@@ -1,14 +1,15 @@
 /*
-MY ALGORITHM 
+I. ENCODE
 
-Step 1: Convert input string (str) to array (message)
-Step 2: store letters and their unique numbers as an object (alphabetMapping)
-Step 3: Loop through message and map letters to their corresponding numbers from the alphabetMapping mapping.
-Step 4: Store the key as an array 
-Step 5: Repeat the elements of the key array until its length matches the length of "aa"
-Step 6: Add "key message" and "message" together
-Step 7: 
-
+My Algorithm: 
+1. Convert the input string str to an array "message".
+2. Store letters and their unique numbers as an object "alphabetMapping".
+3. Loop through the "message" array and map letters to their corresponding numbers from the "alphabetMapping".
+4. Create a "key" array from the digits of the provided number "n".
+5. Repeat the elements of the "key" array until its length matches the length of the "message" array --> store the extended key as an array
+6. Add the "extended key" array and the "message" array together by adding each corresponding element.
+7. Return the encoded message.
+-----
 */
 
 const alphabetMapping = {

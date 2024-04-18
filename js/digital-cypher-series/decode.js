@@ -1,4 +1,6 @@
 /*
+II. DECODE
+
 Write a function that accepts an array of integers "code" and a "key" number. 
 As the result, it should return string containg a decoded message from the "code".
 Example
