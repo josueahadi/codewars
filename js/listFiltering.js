@@ -1,6 +1,5 @@
 function filter_list(l) {
-    const filteredArray = l.filter(item => typeof item !== "string");
-    return filteredArray;
+    return  filteredArray = l.filter(item => typeof item !== "string");
   }
   
   filter_list([1,2,'a','b'])
