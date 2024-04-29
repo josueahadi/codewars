@@ -35,6 +35,21 @@ function decode  (code, n) {
             }
         }
     }
+
+
+    function isRepeatingKey(extendedKey, possibleKey) {
+        if (extendedKey.length % possibleKey.length !== 0) {
+            return false;
+        }
+        for (let i = 0; i < extendedKey.length; i += possibleKey.length) {
+            if (extendedKey.slice(i, i + possibleKey.length) !== possibleKey) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     return decodedMessage.join("");
 }
 
