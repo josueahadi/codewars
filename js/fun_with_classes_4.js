@@ -1,35 +1,17 @@
 class Cube {
     constructor(length) {
-        this._length = length;
+        this.length = length;
     }
-
-    get length() {
-        return this._length;
-    }
-
-    set length(value) {
-        if (value <= 0) {
-            throw new Error("Length must be a positive number");
-        }
-        this._length = value;
-    }
-
     get surfaceArea() {
-        let area = 6 * Math.pow(this._length, 2);
-        return area;
+        return 6 * Math.pow(this.length, 2);
     }
-
     set surfaceArea(area) {
-        this._length = Math.sqrt(area / 6);
+        this.length = Math.sqrt(area / 6);
     }
-
     get volume() {
-        let volume = Math.pow(this._length, 3);
-        return volume;
+        return Math.pow(this.length, 3);
     }
-
     set volume(volume) {
-        this._length = Math.cbrt(volume);
+        this.length = Math.cbrt(volume);
     }
-
 }
