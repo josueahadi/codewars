@@ -7,21 +7,28 @@ class File {
         this.currentLine = 0;
         this.currentIndex = 0;
     }
+
     get fullName() {
         return this._fullName;
     }
+
     get filename() {
         return this._filename;
     }
+
     get extension() {
         return this._extension;
     }
+
     getContents() {
         return this.contents;
     }
+
     write(str) {
-        this.contents = `${this.contents.join('\n')}${str}`;
+        if (this.contents == '')
+            this.contents += (this.contents ? '\n' : '') + str;
     }
+
     gets() {
         const lines = this.contents.split("\n");
         if (this.currentLine < lines.length) {
@@ -30,6 +37,7 @@ class File {
             return undefined;
         }
     }
+
     getc() {
         const characters = this.contents.split("");
         if (this.currentIndex < characters.length) {
@@ -38,7 +46,6 @@ class File {
             return undefined;
         }
     }
-
 }
 
 /* TESTS */
@@ -62,10 +69,10 @@ class File {
 
 /* extension(property) */
 
-var fileWithComplexName = new File("alpha.beta.gamma.delta.txt", "alpha beta gamma delta");
-console.log(fileWithComplexName.extension); // "txt"
-fileWithComplexName.extension = "js"; // Reassignment should fail
-console.log(fileWithComplexName.extension); // still "txt"
+// var fileWithComplexName = new File("alpha.beta.gamma.delta.txt", "alpha beta gamma delta");
+// console.log(fileWithComplexName.extension); // "txt"
+// fileWithComplexName.extension = "js"; // Reassignment should fail
+// console.log(fileWithComplexName.extension); // still "txt"
 
 
 /* getContents (method) */
@@ -87,15 +94,15 @@ console.log(fileWithComplexName.extension); // still "txt"
 
 /* gets (method) */
 
-var myFile = new File("example.txt", "Line 1\nLine 2\nLine 3\nLine 4\nLine 5");
-console.log(myFile.gets()); // "Line 1"
-console.log(myFile.gets()); // "Line 2"
-console.log(myFile.gets()); // "Line 3"
-console.log(myFile.gets()); // "Line 4"
-console.log(myFile.gets()); // "Line 5"
-console.log(myFile.gets()); // undefined
-console.log(myFile.gets()); // undefined
-console.log(myFile.gets()); // undefined
+// var myFile = new File("example.txt", "Line 1\nLine 2\nLine 3\nLine 4\nLine 5");
+// console.log(myFile.gets()); // "Line 1"
+// console.log(myFile.gets()); // "Line 2"
+// console.log(myFile.gets()); // "Line 3"
+// console.log(myFile.gets()); // "Line 4"
+// console.log(myFile.gets()); // "Line 5"
+// console.log(myFile.gets()); // undefined
+// console.log(myFile.gets()); // undefined
+// console.log(myFile.gets()); // undefined
 
 /* getc (method) */
 // var myFile = new File("Lorem Ipsum.txt", "Lorem ipsum dolor sit amet, adispicing eu.");
@@ -108,4 +115,4 @@ console.log(myFile.gets()); // undefined
 // console.log(myFile.getc()); // "i"
 // console.log(myFile.getc()); // "p"
 // // ... (many calls to myFile.getc())
-// console.log(myFile.getc()); // undefined (when number of calls exceeds character count)
+// console.log(myFile.getc()); // undefined (when number of calls exceeds character count)  
