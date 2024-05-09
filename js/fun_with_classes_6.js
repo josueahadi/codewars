@@ -25,8 +25,7 @@ class File {
     }
 
     write(str) {
-        if (this.contents == '')
-            this.contents += (this.contents ? '\n' : '') + str;
+        this.contents += (this.contents ? '\n' : '') + str;
     }
 
     gets() {
