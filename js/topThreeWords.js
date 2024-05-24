@@ -19,13 +19,11 @@ function topThreeWords(text) {
         }
     });
 
-    // Find the top three words
-    let topThree = Object.entries(occurrences)
+    // Return the top three words
+    return Object.entries(occurrences)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
         .map((key) => key[0]);
-
-    return topThree;
 }
 
 console.log(topThreeWords(`In a village of La Mancha, the name of which I have no desire to call to
