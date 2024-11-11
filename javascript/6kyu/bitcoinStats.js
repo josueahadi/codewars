@@ -1,27 +1,25 @@
 function getMinAvgMax(toDiscard, data) {
-    let withoutDiscarded = [];
-    let result = [];
+    const result = [];
+    let joinedArr = [];
 
-    // Discard 'toDiscard' elements from both ends of each sub-array
+    // Process each sub-array
     data.forEach((arr) => {
-        withoutDiscarded.push(arr.slice(toDiscard, -toDiscard));
+        const trimmedArr = arr.slice(toDiscard, -toDiscard);
+        joinedArr = joinedArr.concat(trimmedArr); // Accumulate all trimmed elements for overall stats
+
+        // Calculate min, avg, and max for each sub-array
+        const min = Math.min(...trimmedArr);
+        const max = Math.max(...trimmedArr);
+        const avg = trimmedArr.reduce((sum, num) => sum + num, 0) / trimmedArr.length;
+        result.push([min, avg, max]);
     });
 
-    // Calculate min, avg, max for each sub-array
-    for (let subArr of withoutDiscarded) {
-        const min = Math.min(...subArr);
-        const max = Math.max(...subArr);
-        const avg = subArr.reduce((sum, num) => sum + num, 0) / subArr.length;
-        result.push([min, avg, max]);
-    }
-
-    // Flatten the array to calculate total min, avg, max
-    const joinedArr = withoutDiscarded.flat();
+    // Calculate overall min, avg, and max from joinedArr
     const totalMin = Math.min(...joinedArr);
     const totalMax = Math.max(...joinedArr);
     const totalAvg = joinedArr.reduce((sum, num) => sum + num, 0) / joinedArr.length;
     
-    // Add overall min, avg, max to result
+    // Append overall min, avg, max to result
     result.push([totalMin, totalAvg, totalMax]);
     return result;
 }
