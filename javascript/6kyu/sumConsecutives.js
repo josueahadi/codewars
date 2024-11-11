@@ -1,13 +1,6 @@
-function sumConsecutives(s) {
-    const result = [];
-    let accumulator = s[0];
-    for (let i = 1; i <= s.length; i++) {
-        if (s[i] === s[i - 1]) {
-            accumulator += s[i];
-        } else {
-            result.push(accumulator)
-            accumulator = s[i]
-        }
-    }
-    return result
+const sumConsecutives = (s) => {
+    return s.reduce((accumulator, currentValue, i, s) => 
+        (currentValue === s[i - 1] ? accumulator[accumulator.length-1]+=currentValue : accumulator.push(currentValue), accumulator), [])
 }
+
+console.log(sumConsecutives([1,4,4,4,0,4,3,3,1]))
