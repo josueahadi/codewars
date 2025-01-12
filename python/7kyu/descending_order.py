@@ -1,4 +1,5 @@
 def descending_order(num):
-    reversed_str = str(num)[::-1]
-    reversed_num =  int(reversed_str)
+    string_num = str(num)
+    sorted_digits = sorted(string_num, reverse=True)
+    reversed_num =  int("".join(sorted_digits))
     return reversed_num
